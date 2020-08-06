@@ -1,10 +1,7 @@
 <template>
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
-      <div class="text-center">
-        demos
-      </div>
-      <v-card>
+      <v-card v-if="false">
         <v-card-title class="headline">
           Three.js 3D DEMO
         </v-card-title>

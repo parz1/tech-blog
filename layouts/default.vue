@@ -7,34 +7,50 @@
       app
       :color="this.$vuetify.theme.dark ? 'grey darken-4' : 'white'"
     >
-      dfdfd
+      <drawer-cnt @close="drawer = false"></drawer-cnt>
     </v-navigation-drawer>
-    <v-app-bar
-      fixed
-      app
-      elevate-on-scroll
-      :color="this.$vuetify.theme.dark ? 'indigo' : 'white'"
-    >
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <span
-        class="text-uppercase title font-weight-light"
-        v-text="title"
-      ></span>
+    <v-app-bar fixed app elevate-on-scroll>
+      <div v-if="this.$vuetify.breakpoint.smAndUp">
+        <v-btn text class="mr-4" :to="{ path: '/' }">
+          <v-icon>mdi-home</v-icon>
+          <span
+            class="text-uppercase title font-weight-light"
+            v-text="title"
+          ></span>
+        </v-btn>
+        <v-btn text class="px-2 mx-0" :to="{ path: '/blog' }">
+          <v-icon size="20">mdi-post-outline</v-icon>
+          BLOG
+        </v-btn>
+        <v-btn text class="px-2 mx-0">
+          <v-icon size="20">mdi-play-speed</v-icon>
+          DEMO
+        </v-btn>
+      </div>
       <v-spacer />
       <v-btn icon @click="turnTheme">
         <v-icon>mdi-application</v-icon>
       </v-btn>
-      <v-btn icon @click="drawer = !drawer">
-        <v-icon>mdi-menu</v-icon>
+      <v-btn icon @click="search = !search">
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+      <v-btn style="z-index: 100;" icon @click="drawer = !drawer">
+        <v-icon>mdi-apps</v-icon>
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container>
+      <v-container class="pa-0 viewbox">
         <nuxt />
       </v-container>
     </v-main>
+    <v-dialog v-model="search" max-width="720">
+      <v-card>
+        <v-card-title>搜索</v-card-title>
+        <v-card-text class="search-cnt">
+          <search></search>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
     <v-footer class="d-flex justify-end">
       <span>&copy; {{ new Date().getFullYear() }}</span>
       <span class="ml-1">parz1</span>
@@ -43,13 +59,18 @@
 </template>
 
 <script>
+import Search from '~/components/Search'
+import DrawerCnt from '~/components/DrawerCnt'
 export default {
+  components: {
+    Search,
+    DrawerCnt,
+  },
   data() {
     return {
       themeStat: false,
-      clipped: false,
       drawer: false,
-      fixed: false,
+      search: true,
       items: [
         {
           icon: 'mdi-apps',
@@ -62,7 +83,6 @@ export default {
           to: '/inspire',
         },
       ],
-      miniVariant: false,
       right: true,
       title: 'parz1.blog',
     }
@@ -73,10 +93,15 @@ export default {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
     },
   },
-  // computed: {
-  //   theme() {
-  //     return this.$vuetify.theme.dark === this.themeStat
-  //   },
-  // },
 }
 </script>
+
+<style scoped>
+.viewbox {
+  max-width: 100vw;
+  overflow: hidden;
+}
+.search-cnt {
+  transition: 2s all;
+}
+</style>

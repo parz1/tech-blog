@@ -5,7 +5,6 @@ img: default-cover.jpg
 alt: JS判断数组的5种方式
 ---
 
-# JS判断数组的5种方式
 
 let arr = []
 

@@ -7622,6 +7622,11 @@ readdirp@~3.4.0:
   dependencies:
     picomatch "^2.2.1"
 
+reading-time@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npm.taobao.org/reading-time/download/reading-time-1.2.0.tgz#ced71c06715762f805506328dcc1fd45d8249ac4"
+  integrity sha1-ztccBnFXYvgFUGMo3MH9RdgkmsQ=
+
 regenerate-unicode-properties@^8.2.0:
   version "8.2.0"
   resolved "https://registry.npmjs.org/regenerate-unicode-properties/-/regenerate-unicode-properties-8.2.0.tgz#e5de7111d655e7ba60c057dbe9ff37c87e65cdec"

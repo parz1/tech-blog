@@ -1,12 +1,14 @@
 <template>
-  <div class="d-flex justify-space-between">
+  <div class="d-flex justify-space-between mt-8">
     <nuxt-link
       v-if="prev"
       :to="{ name: 'blog-slug', params: { slug: prev.slug } }"
     >
       <v-btn text>
         <v-icon>mdi-chevron-left</v-icon>
-        <span class="body-1"> {{ prev.title }}</span>
+        <span class="body-1 text-truncate" style="max-width: 30vw;">
+          {{ prev.title }}</span
+        >
       </v-btn>
     </nuxt-link>
     <v-spacer></v-spacer>
@@ -15,7 +17,9 @@
       :to="{ name: 'blog-slug', params: { slug: next.slug } }"
     >
       <v-btn text class="d-flex justify-center">
-        <span class="body-1"> {{ next.title }}</span>
+        <span class="body-1 text-truncate" style="max-width: 30vw;">
+          {{ next.title }}</span
+        >
         <v-icon>mdi-chevron-right</v-icon>
       </v-btn>
     </nuxt-link>

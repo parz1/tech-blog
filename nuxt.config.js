@@ -66,6 +66,15 @@ export default {
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
   ],
+  hooks: {
+    'content:file:beforeInsert': (document) => {
+      if (document.extension === '.md') {
+        const { minutes, words } = require('reading-time')(document.text)
+
+        document.readingTime = { minutes, words }
+      }
+    },
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -76,6 +85,8 @@ export default {
    ** See https://content.nuxtjs.org/configuration
    */
   content: {
+    liveEdit: false,
+    nestedProperties: ['categories.slug'],
     markdown: {
       prism: {
         theme: 'prism-themes/themes/prism-dracula.css',
