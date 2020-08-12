@@ -43,7 +43,7 @@ jobs:
         driver: oss
         bucket: oss-hangzhou-websites-goder
         region: oss-cn-hangzhou
-        dist: disc
+        dist: dist
         
       env:
         UPTOC_UPLOADER_AK: ${{ secrets.OSS_KEY_ID }}
