@@ -28,5 +28,18 @@ export default {
       ? () => import('~/components/Threejsdemo.vue')
       : null,
   },
+  head() {
+    return {
+      title: null,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'My custom description',
+        },
+      ],
+    }
+  },
 }
 </script>
