@@ -45,5 +45,5 @@ jobs:
         access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
 
     - name: cp files to aliyun
-      run: ossutil cp -rf ./dist oss://oss-hangzhou-websites-goder.oss-cn-hangzhou.aliyuncs.com/
+      run: ossutil cp -rf ./dist oss://oss-hangzhou-websites-goder/
         
