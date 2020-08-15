@@ -70,7 +70,7 @@ export default {
     return {
       themeStat: false,
       drawer: false,
-      search: true,
+      search: false,
       items: [
         {
           icon: 'mdi-apps',

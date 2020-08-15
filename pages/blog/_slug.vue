@@ -48,12 +48,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/assets/style/md.scss';
 .content {
   margin: auto;
   &-box {
     margin: 0px;
-  }
-  &-title {
   }
   .nuxt-content {
     code {
@@ -71,9 +70,7 @@ export default {
         right: 8px;
       }
     }
-    p {
-      margin: 8px 0;
-    }
+    @include markdown-scss;
   }
 }
 </style>

@@ -1,7 +1,11 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <v-card v-if="false">
+  <v-layout class="view" column justify-center align-center>
+    <div class="display-4 font-weight-light text-uppercase">
+      parz1's tech blog
+    </div>
+    <div class="headline">Version 0.1.0</div>
+    <v-flex v-if="false" xs12 sm8 md6>
+      <v-card>
         <v-card-title class="headline">
           Three.js 3D DEMO
         </v-card-title>
@@ -43,3 +47,10 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.view {
+  width: 100vw;
+  height: 90vh;
+}
+</style>
