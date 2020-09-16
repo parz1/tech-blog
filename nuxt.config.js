@@ -91,7 +91,7 @@ export default {
     nestedProperties: ['categories.slug'],
     markdown: {
       prism: {
-        theme: 'prism-themes/themes/prism-dracula.css',
+        theme: 'prism-themes/themes/prism-material-light.css',
       },
     },
   },

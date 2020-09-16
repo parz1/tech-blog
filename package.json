@@ -17,6 +17,7 @@
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "@tweenjs/tween.js": "^18.6.0",
+    "js-yaml-loader": "^1.2.2",
     "nuxt": "^2.13.0",
     "prism-themes": "^1.4.0",
     "reading-time": "^1.2.0",
