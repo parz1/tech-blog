@@ -130,6 +130,11 @@ export default {
   build: {
     extend(config, { isDev, isClient }) {
       //  ...
+      config.module.rules.push({
+        test: /\.ya?ml$/,
+        type: 'json',
+        use: 'yaml-loader',
+      })
     },
   },
 }

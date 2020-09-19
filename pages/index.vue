@@ -1,9 +1,9 @@
 <template>
   <v-layout class="view" column justify-center align-center>
-    <div class="display-4 font-weight-light text-uppercase">
-      parz1's tech blog
+    <div class="display-4 font-weight-black">
+      parz1の仮想化
     </div>
-    <div class="headline">Version 0.1.0</div>
+    <div class="headline mt-4">N1205 1st EDITION ver1.0</div>
     <v-flex v-if="false" xs12 sm8 md6>
       <v-card>
         <v-card-title class="headline">

@@ -22,7 +22,7 @@
           <v-icon size="20">mdi-post-outline</v-icon>
           BLOG
         </v-btn>
-        <v-btn text class="px-2 mx-0">
+        <v-btn text class="px-2 mx-0" :to="{ path: '/demo' }">
           <v-icon size="20">mdi-play-speed</v-icon>
           DEMO
         </v-btn>
