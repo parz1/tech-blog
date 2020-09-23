@@ -6,7 +6,7 @@
 
 <script>
 import doc from '~/update.yaml'
-import TimeLine from '~/components/TimeLine'
+import TimeLine from '~/components/TimeLine.vue'
 export default {
   components: {
     TimeLine,
