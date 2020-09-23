@@ -1,3 +1,24 @@
-version:
-  node:
-    - hello
+v1.01:
+  ver: "N1205 1st EDITION ver1.01"
+  desc: 完善UI
+  ctx:
+    - 优化UPDATE FEED的UI/UX
+  tag:
+    - build
+  link:
+    - js-module
+  date: "2020-09-21 11:10:00"
+
+v1.0:
+  ver: "N1205 1st EDITION ver1.0"
+  desc: 初始化博客
+  ctx:
+    - 用Nuxt建立博客
+    - Nuxt/Content模块建立博客页
+    - 建立Update Feed
+  tag:
+    - build
+    - content
+  link:
+    - js-module
+  date: "2020-09-21 11:10:00"
