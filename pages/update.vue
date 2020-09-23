@@ -6,10 +6,11 @@
 
 <script>
 import doc from '~/update.yaml'
-import TimeLine from '~/components/TimeLine.vue'
 export default {
   components: {
-    TimeLine,
+    TimeLine: process.browser
+      ? () => import('~/components/TimeLine.vue')
+      : null,
   },
   asyncData({ store }) {
     const feed = []
