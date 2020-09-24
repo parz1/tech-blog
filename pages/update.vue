@@ -11,7 +11,7 @@ import doc from '~/update.yaml'
 export default {
   components: {
     TimeLine: process.browser
-      ? () => import('~/components/TimeLine.vue')
+      ? () => import('~/components/Timeline.vue')
       : null,
   },
   asyncData({ store }) {
