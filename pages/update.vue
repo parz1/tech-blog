@@ -1,6 +1,8 @@
 <template>
   <div class="d-flex justify-center">
-    <time-line :feed="feed" />
+    <client-only placeholder="Loading...">
+      <TimeLine :feed="feed" />
+    </client-only>
   </div>
 </template>
 
