@@ -20,7 +20,7 @@
     "nuxt": "^2.13.0",
     "prism-themes": "^1.4.0",
     "reading-time": "^1.2.0",
-    "three": "^0.118.3",
+    "three": "^0.120.1",
     "yaml-loader": "^0.6.0"
   },
   "devDependencies": {

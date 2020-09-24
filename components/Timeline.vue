@@ -57,6 +57,7 @@
 
 <script>
 export default {
+  name: 'TimeLine',
   props: {
     feed: {
       type: Array,

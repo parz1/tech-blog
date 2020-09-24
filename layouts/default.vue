@@ -34,7 +34,7 @@
       <v-btn icon @click="search = !search">
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
-      <v-btn style="z-index: 100;" icon @click="drawer = !drawer">
+      <v-btn style="z-index: 100" icon @click="drawer = !drawer">
         <v-icon>mdi-apps</v-icon>
       </v-btn>
     </v-app-bar>

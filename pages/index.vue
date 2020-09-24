@@ -1,14 +1,10 @@
 <template>
   <v-layout class="view" column justify-center align-center>
-    <div class="display-4 font-weight-black">
-      parz1の仮想化
-    </div>
+    <div class="display-4 font-weight-black">parz1の仮想化</div>
     <div class="headline mt-4">N1205 1st EDITION ver1.0</div>
     <v-flex v-if="false" xs12 sm8 md6>
       <v-card>
-        <v-card-title class="headline">
-          Three.js 3D DEMO
-        </v-card-title>
+        <v-card-title class="headline">Three.js 3D DEMO</v-card-title>
         <v-card-text
           ><client-only>
             <three-demo></three-demo>
@@ -16,9 +12,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire">
-            Continue
-          </v-btn>
+          <v-btn color="primary" nuxt to="/inspire">Continue</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
