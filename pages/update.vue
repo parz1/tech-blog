@@ -1,16 +1,24 @@
 <template>
-  <div class="d-flex justify-center">
-    <client-only placeholder="Loading...">
-      <TimeLine :feed="feed" />
-    </client-only>
-  </div>
+  <v-row justify="center">
+    <v-col xl="6" md="6" xs="12">
+      <v-layout column justify-center align-start>
+        <div class="display-3 font-weight-black mt-4 mx-4">UPDATES</div>
+        <div class="title font-weight-light mx-4">
+          Update logs of this blog.
+        </div>
+        <client-only placeholder="Loading...">
+          <Timeline :feed="feed" />
+        </client-only>
+      </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
 import doc from '~/update.yaml'
 export default {
   components: {
-    TimeLine: process.browser
+    Timeline: process.browser
       ? () => import('~/components/Timeline.vue')
       : null,
   },

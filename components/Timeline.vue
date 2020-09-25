@@ -1,9 +1,13 @@
 <template>
-  <v-sheet class="overflow-y-auto" max-height="600" tile>
+  <v-sheet class="overflow-y-auto my-4" max-height="600">
     <v-item-group mandatory>
       <v-item v-for="(version, idx) in feed" :key="idx">
         <template v-slot="{ active, toggle }">
-          <v-sheet class="pa-4 d-flex timeline" tile max-width="960px">
+          <v-sheet
+            class="px-4 pb-4 pt-2 d-flex timeline"
+            tile
+            max-width="960px"
+          >
             <div>
               <v-avatar color="blue">
                 <v-icon dark>{{ 'mdi-' + icon[version.tag[0]] }}</v-icon>
@@ -12,9 +16,9 @@
             <div>
               <v-card
                 flat
-                :ripple="false"
-                class="px-2 pb-2 mx-2 timeline-title"
-                @click="toggle"
+                :ripple="true"
+                class="px-2 mx-2 timeline-title"
+                @click.native="toggle"
               >
                 <span class="headline font-weight-black">{{
                   version.ver
@@ -92,13 +96,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.wrapper {
+  background: transparent;
+}
 .timeline {
   overflow: hidden;
   position: relative;
   &::after {
     content: '';
     position: absolute;
-    top: 72px;
+    top: 64px;
     left: 40px;
     height: 100%;
     width: 2px;
@@ -108,7 +115,8 @@ export default {
     display: none;
   }
   &-title {
-    border-radius: 25px;
+    cursor: pointer;
+    background-color: transparent;
   }
   .ctx {
     &-list::before {
