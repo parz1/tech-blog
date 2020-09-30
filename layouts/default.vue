@@ -99,7 +99,7 @@ export default {
 <style scoped>
 .viewbox {
   max-width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .search-cnt {
   transition: 2s all;

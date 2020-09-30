@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="overflow-y-auto my-4" max-height="600">
+  <v-sheet class="my-4">
     <v-item-group mandatory>
       <v-item v-for="(version, idx) in feed" :key="idx">
         <template v-slot="{ active, toggle }">
@@ -17,17 +17,23 @@
               <v-card
                 flat
                 :ripple="true"
-                class="px-2 mx-2 timeline-title"
+                class="pl-2 mx-2 timeline-title"
                 @click.native="toggle"
               >
-                <span class="headline font-weight-black">{{
-                  version.ver
+                <div>
+                  <span class="headline font-weight-black primary--text">{{
+                    `${version.vername}`
+                  }}</span>
+                </div>
+                <span class="title font-weight-black">{{
+                  `ver${version.ver}`
                 }}</span>
-                <span class="title font-weight-light ml-2">{{
-                  version.desc
-                }}</span>
-                <v-icon v-if="active">mdi-chevron-up</v-icon>
-                <v-icon v-else>mdi-chevron-down</v-icon>
+                <span class="body-1 font-weight-light">
+                  {{ version.desc }}
+                  <v-icon v-if="active" small>mdi-chevron-up</v-icon>
+                  <v-icon v-else small>mdi-chevron-down</v-icon>
+                </span>
+
                 <div class="mb-2">
                   <v-chip
                     v-for="tag in version.tag"
@@ -45,12 +51,19 @@
                 <v-responsive v-if="active">
                   <div class="ctx px-4">
                     <!-- <v-list-item-title>{{ version.ctx }}</v-list-item-title> -->
-                    <div v-for="ctx in version.ctx" :key="ctx" class="ctx-list">
+                    <div
+                      v-for="ctx in version.ctx"
+                      :key="ctx"
+                      class="ctx-list body-2"
+                    >
                       {{ ctx }}
                     </div>
                   </div>
                 </v-responsive>
               </v-expand-transition>
+              <div class="text--disabled px-4 mt-4">
+                {{ fmtDate(version.date) }}
+              </div>
             </div>
           </v-sheet>
         </template>
@@ -84,13 +97,22 @@ export default {
     return {
       color: {
         content: 'primary',
-        build: 'success',
+        setup: 'accent',
+        enhancement: 'success',
       },
       icon: {
         content: 'draw',
-        build: 'apps',
+        setup: 'apps',
+        enhancement: 'update',
       },
     }
+  },
+  methods: {
+    fmtDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      // local i18n
+      return new Date(date).toLocaleDateString('zh-tw', options)
+    },
   },
 }
 </script>
@@ -100,7 +122,6 @@ export default {
   background: transparent;
 }
 .timeline {
-  overflow: hidden;
   position: relative;
   &::after {
     content: '';
@@ -119,9 +140,13 @@ export default {
     background-color: transparent;
   }
   .ctx {
-    &-list::before {
-      content: '-';
-      margin-right: 4px;
+    &-list {
+      padding-left: 16px;
+      &::before {
+        content: '-';
+        position: absolute;
+        left: 16px;
+      }
     }
   }
 }

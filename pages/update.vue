@@ -2,7 +2,7 @@
   <v-row justify="center">
     <v-col xl="6" md="6" xs="12">
       <v-layout column justify-center align-start>
-        <div class="display-3 font-weight-black mt-4 mx-4">UPDATES</div>
+        <div class="display-1 font-weight-black mt-4 mx-4">UPDATES</div>
         <div class="title font-weight-light mx-4">
           Update logs of this blog.
         </div>
