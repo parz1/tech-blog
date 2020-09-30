@@ -1,33 +1,60 @@
+v1.04:
+  vername: "N1205 1st EDITION"
+  ver: "1.04"
+  desc: 添加Leetcode模块
+  ctx:
+    - 添加了Leetcode页面
+  tag:
+    - setup
+  link:
+  date: "2020-10-01 01:39:00"
+
+v1.03:
+  vername: "N1205 1st EDITION"
+  ver: "1.03"
+  desc: 提升update的观感
+  ctx:
+    - 对信息流进行排版，加强美感
+    - 引入版本名和版本号
+    - 首页标题屏幕自适应
+  tag:
+    - enhancement
+  link:
+  date: "2020-09-30 23:00:00"
+
 v1.02:
-  ver: "N1205 1st EDITION ver1.02"
+  vername: "N1205 1st EDITION"
+  ver: "1.02"
   desc: Fix Github Actions Bug
   ctx:
     - 修复了由于文件大小写出现的GithubActions打包nuxt的出错
   tag:
-    - build
+    - setup
   link:
   date: "2020-09-25 11:26:00"
 
 v1.01:
-  ver: "N1205 1st EDITION ver1.01"
+  vername: "N1205 1st EDITION"
+  ver: "1.01"
   desc: 完善UI
   ctx:
     - 优化UPDATE FEED的UI/UX
   tag:
-    - build
+    - setup
   link:
     - js-module
   date: "2020-09-22 11:10:00"
 
 v1.0:
-  ver: "N1205 1st EDITION ver1.0"
+  vername: "N1205 1st EDITION"
+  ver: "1.0"
   desc: 初始化博客
   ctx:
     - 用Nuxt建立博客
     - Nuxt/Content模块建立博客页
     - 建立Update Feed
   tag:
-    - build
+    - setup
     - content
   link:
     - js-module
