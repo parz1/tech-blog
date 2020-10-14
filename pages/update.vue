@@ -26,11 +26,16 @@ export default {
     const feed = []
     for (const key in doc) {
       const e = doc[key]
-      e.date = new Date(e.date)
+      // e.date = new Date(e.date)
       feed.push(e)
     }
     return {
       feed,
+    }
+  },
+  head() {
+    return {
+      title: '更新日志',
     }
   },
 }

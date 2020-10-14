@@ -40,8 +40,8 @@
                     :key="tag"
                     :color="color[tag]"
                     label
-                    small
-                    class="mr-4 text-uppercase body-2"
+                    x-small
+                    class="mr-4 text-uppercase overline"
                     >{{ tag }}</v-chip
                   >
                 </div>
@@ -59,11 +59,11 @@
                       {{ ctx }}
                     </div>
                   </div>
+                  <span class="text--disabled px-4">
+                    {{ version.date }}
+                  </span>
                 </v-responsive>
               </v-expand-transition>
-              <div class="text--disabled px-4 mt-4">
-                {{ fmtDate(version.date) }}
-              </div>
             </div>
           </v-sheet>
         </template>

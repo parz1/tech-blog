@@ -5,25 +5,31 @@
       label="搜索文章"
       append-icon="mdi-magnify"
     ></v-text-field>
-    <v-list>
-      <v-list-item
-        v-for="(article, index) in articles"
-        :key="index"
-        three-line
-        link
-        :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-      >
-        <v-list-item-content>
-          <v-list-item-title>{{ article.title }}</v-list-item-title>
-          <v-list-item-subtitle>
-            {{ article.description }}
-          </v-list-item-subtitle>
-          <v-list-item-subtitle>
-            {{ fmtDate(article.createdAt) }}
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
+
+    <v-expand-transition>
+      <v-responsive v-if="articles.length">
+        <v-list>
+          <v-list-item
+            v-for="(article, index) in articles"
+            :key="index"
+            three-line
+            link
+            :to="{ name: 'blog-slug', params: { slug: article.slug } }"
+            @click="$emit('change')"
+          >
+            <v-list-item-content>
+              <v-list-item-title>{{ article.title }}</v-list-item-title>
+              <v-list-item-subtitle>
+                {{ article.description }}
+              </v-list-item-subtitle>
+              <v-list-item-subtitle>
+                {{ fmtDate(article.createdAt) }}
+              </v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-responsive>
+    </v-expand-transition>
   </div>
 </template>
 

@@ -27,6 +27,11 @@
           DEMO
         </v-btn>
       </div>
+      <div v-else>
+        <v-btn icon class="ml-n2">
+          <v-icon>mdi-menu</v-icon>
+        </v-btn>
+      </div>
       <v-spacer />
       <v-btn icon @click="turnTheme">
         <v-icon>mdi-application</v-icon>
@@ -46,8 +51,8 @@
     <v-dialog v-model="search" max-width="720">
       <v-card>
         <v-card-title>搜索</v-card-title>
-        <v-card-text class="search-cnt">
-          <search></search>
+        <v-card-text>
+          <search @change="search = !search"></search>
         </v-card-text>
       </v-card>
     </v-dialog>
@@ -100,8 +105,5 @@ export default {
 .viewbox {
   max-width: 100vw;
   overflow-x: hidden;
-}
-.search-cnt {
-  transition: 2s all;
 }
 </style>
