@@ -55,14 +55,16 @@ export default {
     margin: 0px;
   }
   .nuxt-content {
-    code {
+    code,
+    pre {
       background-color: transparent;
+      text-shadow: none;
       font-weight: 300;
       font-size: 1rem;
-      padding: 0;
-      font-family: inherit;
+      font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     }
     &-highlight {
+      background-color: var(--v-accent-lighten2);
       .filename {
         position: absolute;
         top: 48px;

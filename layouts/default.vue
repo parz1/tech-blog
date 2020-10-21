@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       right
@@ -25,6 +25,10 @@
         <v-btn text class="px-2 mx-0" :to="{ path: '/demo' }">
           <v-icon size="20">mdi-play-speed</v-icon>
           DEMO
+        </v-btn>
+        <v-btn text class="px-2 mx-0" :to="{ path: '/leetcode' }">
+          <v-icon size="20">mdi-code-tags</v-icon>
+          LEETCODE
         </v-btn>
       </div>
       <div v-else>
