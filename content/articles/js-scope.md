@@ -3,12 +3,6 @@ title: 深入理解JS作用域
 description: 理解JS编译执行过程、理解作用域和上下文环境
 ---
 
-
-
-
-
-## 原理解析
-
 ### 编译执行
 
 js是没有编译过程的，而是边解释边执行
@@ -46,6 +40,31 @@ js是没有编译过程的，而是边解释边执行
 ```
 
 关于AST可以试试这个demo [esprima.org](https://esprima.org/demo/parse.html#)
+
+也可以使用d8工具
+
+[d8安装使用教程(这是个坑)]()
+
+```powershell
+>d8 test.js --print-ast
+[generating bytecode for function: ]
+--- AST ---
+FUNC at 0
+. KIND 0
+. LITERAL ID 0
+. SUSPEND COUNT 0
+. NAME ""
+. INFERRED NAME ""
+. DECLS
+. . VARIABLE (000002D4F9F60348) (mode = VAR, assigned = true) "a"
+. BLOCK NOCOMPLETIONS at -1
+. . EXPRESSION STATEMENT at 8
+. . . INIT at 8
+. . . . VAR PROXY unallocated (000002D4F9F60348) (mode = VAR, assigned = true) "a"
+. . . . LITERAL 2
+```
+
+
 
 #### 第三步： 代码生成&执行
 
@@ -304,3 +323,14 @@ JS中分全局作用域和局部作用域，另外函数作用域可以嵌套。
 
 #### 执行环境 execution context
 
+执行环境(execution context) 也叫执行上下文、执行上下文环境。每个执行唤醒都有一个与之关联的变量对象(variable object),环境中定义的所有变量和函数都保存在这个对象中。
+
+ 一定要区分执行环境和变量对象。执行环境会随着函数的调用和返回，不断的重建和销毁。但变量对象在有变量引用的情况下，将留在内存中不被销毁。
+
+**执行环境栈**
+
+执行环境栈类似于作用域链，有序地保存着当前程序中存在的执行环境。
+
+当执行流进入一个函数时，函数的环境会被压入环境栈，执行后再将其弹出。
+
+对于函数来说，执行上下文环境在函数调用时确定的，执行上下文环境包含了作用域内所有的变量和函数的参数值。在同一个作用域下，不同的调用(如bar(20)和bar(200))会产生不同的执行上下文环境，从而产生不同的变量和值。所以执行上下文环境是**动态**的。
