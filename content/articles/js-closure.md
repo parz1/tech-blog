@@ -250,3 +250,144 @@ fn();
 console.log(fn2());
 ```
 
+**函数参数**
+
+```js
+var fn2 = function(fn){
+    console.log(fn());
+}
+var fn = function(){
+    var a = 'mjj';
+    var b = function(){
+        return a;
+    }
+    fn2(b);
+}
+fn();
+```
+
+**IIFE**
+
+```js
+function fn2(fn){
+    console.log(fn());
+}
+(function(){
+    var a = 'mjj';
+    var b = function(){
+        return a;
+    }
+    fn2(b);
+})();
+```
+
+**循环赋值**
+
+```js
+function foo(){
+    var arr = [];
+    for(var i = 0; i< 5; i++){
+        arr[i] = (function(j){
+            return function test(){
+                return j;
+            }
+        })(i)
+    }
+    return arr;
+}
+var bar = foo();
+console.log(bar[0]());//0
+```
+
+**getter&setter**
+
+```js
+var getValue,setValue;
+(function(){
+    var secret = 0;
+    getValue = function(){
+        return secret;
+    }
+    setValue = function(v){
+        if(typeof v === 'number'){
+            secret = v;
+        }
+    }
+})();
+console.log(getValue());//0
+setValue(1);
+console.log(getValue());//1
+```
+
+**迭代器**
+
+```js
+function setup(x){
+    var i = 0;
+    return function (){
+        return x[i++];
+    }
+}
+var next = setup(['a','b','c']);
+console.log(next());//'a'
+console.log(next());//'b'
+console.log(next());//'c'
+```
+
+**区分首次**
+
+```js
+var firstLoad = (function(){
+  var _list = [];
+  return function(id){
+    if(_list.indexOf(id) >= 0){
+      return false;
+    }else{
+      _list.push(id);
+      return true;
+    }
+  }
+})();
+firstLoad(10);//true
+firstLoad(10);//false
+firstLoad(20);//true
+firstLoad(20);//false
+```
+
+**缓存机制**
+
+```js
+var mult = function(){
+  var cache = {};
+  var calculate = function(){
+    var a = 1;
+    for(var i = 0,len = arguments.length; i<len; i++){
+      a = a * arguments[i];
+    }
+    return a;
+  };
+  return function(){
+    var args = Array.prototype.join.call(arguments,',');
+    if(args in cache){
+      return cache[args];
+    }
+    return cache[args] = calculate.apply(null,arguments);
+  }
+}()
+console.log(mult(1,1,1,2,3,3));//18
+```
+
+**img上传**
+
+```js
+var report = (function(){
+   var imgs = [];
+    return function(src){
+        var img = new Image();
+        imgs.push(img);
+        img.src = src;
+    }
+})()
+report('http://xx.com/getUserInfo');
+```
+
