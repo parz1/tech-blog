@@ -32,7 +32,7 @@
         </v-btn>
       </div>
       <div v-else>
-        <v-btn icon class="ml-n2">
+        <v-btn icon class="ml-n2" @click="mDrawer = !mDrawer">
           <v-icon>mdi-menu</v-icon>
         </v-btn>
       </div>
@@ -47,6 +47,7 @@
         <v-icon>mdi-apps</v-icon>
       </v-btn>
     </v-app-bar>
+    <navi-sider :drawer.sync="mDrawer"></navi-sider>
     <v-main>
       <v-container class="pa-0 viewbox">
         <nuxt />
@@ -70,15 +71,23 @@
 <script>
 import Search from '~/components/Search'
 import DrawerCnt from '~/components/DrawerCnt'
+import NaviSider from '~/components/NaviSider'
 export default {
+  provide() {
+    return {
+      naviList: this.items,
+    }
+  },
   components: {
     Search,
     DrawerCnt,
+    NaviSider,
   },
   data() {
     return {
       themeStat: false,
       drawer: false,
+      mDrawer: false,
       search: false,
       items: [
         {
