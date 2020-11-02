@@ -1,75 +1,69 @@
 <template>
-  <v-sheet class="my-4">
-    <v-item-group mandatory>
-      <v-item v-for="(version, idx) in feed" :key="idx">
-        <template v-slot="{ active, toggle }">
-          <v-sheet
-            class="px-4 pb-4 pt-2 d-flex timeline"
-            tile
-            max-width="960px"
-          >
-            <div>
-              <v-avatar color="blue">
-                <v-icon dark>{{ 'mdi-' + icon[version.tag[0]] }}</v-icon>
-              </v-avatar>
-            </div>
-            <div>
-              <v-card
-                flat
-                :ripple="true"
-                class="pl-2 mx-2 timeline-title"
-                @click.native="toggle"
-              >
-                <div>
-                  <span class="headline font-weight-black primary--text">{{
-                    `${version.vername}`
-                  }}</span>
-                </div>
-                <span class="title font-weight-black">{{
-                  `ver${version.ver}`
+  <v-item-group mandatory>
+    <v-item v-for="(version, idx) in feed" :key="idx">
+      <template v-slot="{ active, toggle }">
+        <v-sheet class="px-4 pb-4 pt-2 d-flex timeline" tile max-width="960px">
+          <div>
+            <v-avatar color="blue">
+              <v-icon dark>{{ 'mdi-' + icon[version.tag[0]] }}</v-icon>
+            </v-avatar>
+          </div>
+          <div>
+            <v-card
+              flat
+              :ripple="true"
+              class="pl-2 mx-2 timeline-title"
+              @click.native="toggle"
+            >
+              <div>
+                <span class="headline font-weight-bold primary--text">{{
+                  `${version.desc}`
                 }}</span>
-                <span class="body-1 font-weight-light">
-                  {{ version.desc }}
-                  <v-icon v-if="active" small>mdi-chevron-up</v-icon>
-                  <v-icon v-else small>mdi-chevron-down</v-icon>
-                </span>
+              </div>
+              <span class="body-1 font-weight-black">{{
+                `ver${version.ver}`
+              }}</span>
+              <span class="body-1 font-weight-light">
+                {{ version.vername }}
+                <v-icon v-if="active" small>mdi-chevron-up</v-icon>
+                <v-icon v-else small>mdi-chevron-down</v-icon>
+              </span>
 
-                <div class="mb-2">
-                  <v-chip
-                    v-for="tag in version.tag"
-                    :key="tag"
-                    :color="color[tag]"
-                    label
-                    x-small
-                    class="mr-4 text-uppercase overline"
-                    >{{ tag }}</v-chip
+              <div class="mb-2">
+                <v-chip
+                  v-for="tag in version.tag"
+                  :key="tag"
+                  :color="color[tag]"
+                  label
+                  x-small
+                  class="mr-4 text-uppercase overline"
+                  >{{ tag }}</v-chip
+                >
+              </div>
+            </v-card>
+
+            <v-expand-transition>
+              <v-responsive v-if="active">
+                <div class="ctx px-4">
+                  <!-- <v-list-item-title>{{ version.ctx }}</v-list-item-title> -->
+                  <div
+                    v-for="ctx in version.ctx"
+                    :key="ctx"
+                    class="ctx-list body-2"
                   >
-                </div>
-              </v-card>
-
-              <v-expand-transition>
-                <v-responsive v-if="active">
-                  <div class="ctx px-4">
-                    <!-- <v-list-item-title>{{ version.ctx }}</v-list-item-title> -->
-                    <div
-                      v-for="ctx in version.ctx"
-                      :key="ctx"
-                      class="ctx-list body-2"
-                    >
-                      {{ ctx }}
-                    </div>
+                    {{ ctx }}
                   </div>
-                  <span class="text--disabled px-4">
-                    {{ version.date }}
-                  </span>
-                </v-responsive>
-              </v-expand-transition>
-            </div>
-          </v-sheet>
-        </template>
-      </v-item>
-    </v-item-group>
-  </v-sheet>
+                </div>
+                <span class="text--disabled px-4">
+                  {{ version.date }}
+                </span>
+              </v-responsive>
+            </v-expand-transition>
+          </div>
+        </v-sheet>
+      </template>
+    </v-item>
+  </v-item-group>
 </template>
 
 <script>

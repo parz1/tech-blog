@@ -9,43 +9,59 @@
     >
       <drawer-cnt @close="drawer = false"></drawer-cnt>
     </v-navigation-drawer>
-    <v-app-bar fixed app elevate-on-scroll>
-      <div v-if="this.$vuetify.breakpoint.smAndUp">
-        <v-btn text class="mr-4" :to="{ path: '/' }">
-          <v-icon>mdi-home</v-icon>
-          <span
-            class="text-uppercase title font-weight-light"
-            v-text="title"
-          ></span>
+    <v-app-bar fixed app elevate-on-scroll class="py-0">
+      <v-container class="py-0 fill-height">
+        <div>
+          <v-tabs
+            class="hidden-sm-and-down fill-height"
+            color="grey darken-1"
+            background-color="transparent"
+            height="60"
+            :grow="false"
+          >
+            <v-tab
+              v-for="link in items"
+              :key="link.title"
+              :to="link.to"
+              :grow="false"
+            >
+              <v-icon class="mr-2">{{ link.icon }}</v-icon>
+              <span class="body-1 font-weight-light">{{ link.title }}</span>
+            </v-tab>
+          </v-tabs>
+        </div>
+        <div class="hidden-md-and-up">
+          <v-btn icon class="ml-n2" @click="mDrawer = !mDrawer">
+            <v-icon>mdi-menu</v-icon>
+          </v-btn>
+        </div>
+        <v-spacer />
+        <div class="hidden-sm-and-down">
+          <!-- <v-btn icon @click="turnTheme">
+            <v-icon>mdi-application</v-icon>
+          </v-btn>
+          <v-btn icon @click="search = !search">
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
+          <v-btn style="z-index: 100" icon @click="drawer = !drawer">
+            <v-icon>mdi-apps</v-icon>
+          </v-btn> -->
+          <v-responsive max-width="260">
+            <v-text-field
+              append-icon="mdi-magnify"
+              dense
+              rounded
+              flat
+              hide-details
+              solo
+              clearable
+            ></v-text-field>
+          </v-responsive>
+        </div>
+        <v-btn class="ml-2" icon color="primary" @click="drawer = !drawer">
+          <v-icon>mdi-apps</v-icon>
         </v-btn>
-        <v-btn text class="px-2 mx-0" :to="{ path: '/blog' }">
-          <v-icon size="20">mdi-post-outline</v-icon>
-          BLOG
-        </v-btn>
-        <v-btn text class="px-2 mx-0" :to="{ path: '/demo' }">
-          <v-icon size="20">mdi-play-speed</v-icon>
-          DEMO
-        </v-btn>
-        <v-btn text class="px-2 mx-0" :to="{ path: '/leetcode' }">
-          <v-icon size="20">mdi-code-tags</v-icon>
-          LEETCODE
-        </v-btn>
-      </div>
-      <div v-else>
-        <v-btn icon class="ml-n2" @click="mDrawer = !mDrawer">
-          <v-icon>mdi-menu</v-icon>
-        </v-btn>
-      </div>
-      <v-spacer />
-      <v-btn icon @click="turnTheme">
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn icon @click="search = !search">
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-      <v-btn style="z-index: 100" icon @click="drawer = !drawer">
-        <v-icon>mdi-apps</v-icon>
-      </v-btn>
+      </v-container>
     </v-app-bar>
     <navi-sider :drawer.sync="mDrawer"></navi-sider>
     <v-main>
@@ -69,6 +85,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Search from '~/components/Search'
 import DrawerCnt from '~/components/DrawerCnt'
 import NaviSider from '~/components/NaviSider'
@@ -89,28 +106,39 @@ export default {
       drawer: false,
       mDrawer: false,
       search: false,
+      searchWidth: 64,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'mdi-home',
+          title: '首页',
           to: '/',
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
+          icon: 'mdi-post-outline',
+          title: '博客',
+          to: '/blog',
+        },
+        {
+          icon: 'mdi-play-speed',
+          title: '样例',
+          to: '/demo',
+        },
+        {
+          icon: 'mdi-code-tags',
+          title: '算法',
+          to: '/leetcode',
         },
       ],
       right: true,
       title: 'parz1.blog',
     }
   },
-  mounted() {},
-  methods: {
-    turnTheme() {
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
-    },
+  computed: {
+    ...mapState({
+      theme: (state) => state.theme,
+    }),
   },
+  mounted() {},
 }
 </script>
 

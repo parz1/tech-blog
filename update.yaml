@@ -1,3 +1,17 @@
+v1.05:
+  vername: "N1205 1st EDITION"
+  ver: "1.05"
+  desc: UI/UX优化
+  ctx:
+    - 封装了移动端抽屉菜单组件
+    - 修改首页样式（导航栏）
+    - 添加了主题选择器，可修改主题
+  tag:
+    - setup
+    - enhancement
+  link:
+  date: "2020-10-01 01:39:00"
+
 v1.04:
   vername: "N1205 1st EDITION"
   ver: "1.04"
