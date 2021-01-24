@@ -1,6 +1,10 @@
 <template>
   <article>
-    <v-card flat max-width="960" min-height="85vh" class="content py-4 mt-lg-4">
+    <v-sheet
+      max-width="960"
+      min-height="85vh"
+      class="content py-4 py-sm-4 my-sm-4 elevation-4"
+    >
       <v-btn text class="my-0 mx-2 px-2 d-flex justify-start align-center">
         <span class="body-1"> {{ fmtDate(article.updatedAt) + '发布' }}</span>
         <v-icon>mdi-calendar-edit</v-icon>
@@ -20,7 +24,7 @@
       </div>
       <v-spacer></v-spacer>
       <pagination :prev="prev" :next="next"></pagination>
-    </v-card>
+    </v-sheet>
   </article>
 </template>
 
@@ -49,6 +53,10 @@ export default {
 
 <style lang="scss">
 @import '~/assets/style/md.scss';
+.v-application code {
+  background-color: transparent;
+  color: #fff;
+}
 .content {
   margin: auto;
   &-box {
@@ -57,14 +65,14 @@ export default {
   .nuxt-content {
     code,
     pre {
-      background-color: transparent;
+      // background-color: transparent;
       text-shadow: none;
       font-weight: 300;
       font-size: 1rem;
       font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     }
     &-highlight {
-      background-color: var(--v-accent-lighten2);
+      // background-color: #f8f8f8;
       .filename {
         position: absolute;
         top: 48px;

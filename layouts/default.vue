@@ -9,35 +9,43 @@
     >
       <drawer-cnt @close="drawer = false"></drawer-cnt>
     </v-navigation-drawer>
-    <v-app-bar fixed app elevate-on-scroll class="py-0">
-      <v-container class="py-0 fill-height">
-        <div>
-          <v-tabs
-            class="hidden-sm-and-down fill-height"
-            color="grey darken-1"
-            background-color="transparent"
-            height="60"
-            :grow="false"
-          >
-            <v-tab
-              v-for="link in items"
-              :key="link.title"
-              :to="link.to"
-              :grow="false"
-            >
-              <v-icon class="mr-2">{{ link.icon }}</v-icon>
-              <span class="body-1 font-weight-light">{{ link.title }}</span>
-            </v-tab>
-          </v-tabs>
-        </div>
-        <div class="hidden-md-and-up">
-          <v-btn icon class="ml-n2" @click="mDrawer = !mDrawer">
-            <v-icon>mdi-menu</v-icon>
-          </v-btn>
-        </div>
-        <v-spacer />
-        <div class="hidden-sm-and-down">
-          <!-- <v-btn icon @click="turnTheme">
+    <v-app-bar
+      fixed
+      dense
+      app
+      elevate-on-scroll
+      :class="{ 'py-0': true, white: !$vuetify.theme.dark }"
+    >
+      <v-btn icon class="ml-n4 hidden-md-and-up" @click="mDrawer = !mDrawer">
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
+      <div class="d-flex title font-weight-bold ml-4 mr-16">
+        goder.club
+        <v-icon class="ml-1" size="24" color="indigo">
+          mdi-gamepad-variant
+        </v-icon>
+      </div>
+      <v-tabs
+        class="hidden-sm-and-down fill-height"
+        color=""
+        background-color="transparent"
+        :grow="false"
+      >
+        <v-tab
+          v-for="link in items"
+          :key="link.title"
+          :to="link.to"
+          :grow="false"
+        >
+          <v-icon v-if="link.to === $route.path" class="mr-1" small>{{
+            link.icon
+          }}</v-icon>
+          <span class="body-2 font-weight-regular">{{ link.title }}</span>
+        </v-tab>
+      </v-tabs>
+      <v-spacer />
+      <div class="hidden-sm-and-down">
+        <!-- <v-btn icon @click="turnTheme">
             <v-icon>mdi-application</v-icon>
           </v-btn>
           <v-btn icon @click="search = !search">
@@ -46,22 +54,20 @@
           <v-btn style="z-index: 100" icon @click="drawer = !drawer">
             <v-icon>mdi-apps</v-icon>
           </v-btn> -->
-          <v-responsive max-width="260">
-            <v-text-field
-              append-icon="mdi-magnify"
-              dense
-              rounded
-              flat
-              hide-details
-              solo
-              clearable
-            ></v-text-field>
-          </v-responsive>
-        </div>
-        <v-btn class="ml-2" icon color="primary" @click="drawer = !drawer">
-          <v-icon>mdi-apps</v-icon>
-        </v-btn>
-      </v-container>
+        <v-responsive max-width="260">
+          <v-text-field
+            append-icon="mdi-magnify"
+            dense
+            flat
+            hide-details
+            solo
+            clearable
+          ></v-text-field>
+        </v-responsive>
+      </div>
+      <v-btn class="ml-2" icon @click="drawer = !drawer">
+        <v-icon>mdi-cog-outline</v-icon>
+      </v-btn>
     </v-app-bar>
     <navi-sider :drawer.sync="mDrawer"></navi-sider>
     <v-main>
