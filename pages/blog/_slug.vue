@@ -3,21 +3,20 @@
     <v-sheet
       max-width="960"
       min-height="85vh"
-      class="content py-4 py-sm-4 my-sm-4 elevation-4"
+      class="d-flex flex-column content pa-8 py-sm-4 my-sm-8 elevation-2"
     >
-      <v-btn text class="my-0 mx-2 px-2 d-flex justify-start align-center">
-        <span class="body-1"> {{ fmtDate(article.updatedAt) + '发布' }}</span>
-        <v-icon>mdi-calendar-edit</v-icon>
-      </v-btn>
-      <p class="display-2 font-weight-bold my-0 px-4 content-title">
+      <p class="display-2 font-weight-bold mb-0 mt-8 content-title">
         {{ article.title }}
       </p>
-      <p class="py-2 px-4 body-2">
-        <span class="text--secondary"
-          >约{{ article.readingTime.words }}个字,{{
+      <p class="py-2 body-1">
+        <span class="text--secondary">
+          {{ fmtDate(article.updatedAt) + '发布' }}
+        </span>
+        <span class="ml-2 text--secondary">
+          约{{ article.readingTime.words }}个字,{{
             parseInt(article.readingTime.minutes + 1)
-          }}分钟内读完</span
-        >
+          }}分钟内读完
+        </span>
       </p>
       <div class="content-box px-4">
         <nuxt-content :document="article" />

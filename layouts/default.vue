@@ -70,7 +70,7 @@
       </v-btn>
     </v-app-bar>
     <navi-sider :drawer.sync="mDrawer"></navi-sider>
-    <v-main>
+    <v-main class="bgcolor">
       <v-container class="pa-0 viewbox">
         <nuxt />
       </v-container>

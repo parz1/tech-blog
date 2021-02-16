@@ -5,6 +5,7 @@ export default {
     name: '琉璃',
     dark: {
       primary: colors.blue,
+      bgcolor: colors.shades.black,
       accent: colors.grey.darken3,
       secondary: colors.amber.darken3,
       info: colors.teal.lighten1,
@@ -17,6 +18,7 @@ export default {
         base: colors.blue.darken2,
         darken1: colors.purple.darken2,
       },
+      bgcolor: colors.blueGrey.lighten5,
       secondary: colors.grey.darken1,
       accent: colors.shades.black,
       error: colors.red.accent3,
