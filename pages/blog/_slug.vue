@@ -18,7 +18,7 @@
           }}分钟内读完
         </span>
       </p>
-      <div class="content-box px-4">
+      <div class="content-box px-sm-4">
         <nuxt-content :document="article" />
       </div>
       <v-spacer></v-spacer>
@@ -34,7 +34,7 @@ export default {
 
     const [prev, next] = await $content('articles')
       .only(['title', 'slug'])
-      .sortBy('createdAt', 'asc')
+      .sortBy('createdAt', 'desc')
       .surround(params.slug)
       .fetch()
 
@@ -55,6 +55,7 @@ export default {
 .v-application code {
   background-color: transparent;
   color: #fff;
+  padding: 0;
 }
 .content {
   margin: auto;

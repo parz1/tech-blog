@@ -1,3 +1,39 @@
+<style lang="scss" scoped>
+.wrapper {
+  background: transparent;
+}
+.timeline {
+  background-color: transparent;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 64px;
+    left: 40px;
+    height: 100%;
+    width: 2px;
+    background-color: #90a4ae;
+  }
+  &:nth-last-child(1)::after {
+    display: none;
+  }
+  &-title {
+    cursor: pointer;
+    background-color: transparent;
+  }
+  .ctx {
+    &-list {
+      padding-left: 16px;
+      &::before {
+        content: '-';
+        position: absolute;
+        left: 16px;
+      }
+    }
+  }
+}
+</style>
+
 <template>
   <v-item-group mandatory>
     <v-item v-for="(version, idx) in feed" :key="idx">
@@ -11,7 +47,7 @@
           <div>
             <v-card
               flat
-              :ripple="true"
+              :ripple="false"
               class="pl-2 mx-2 timeline-title"
               @click.native="toggle"
             >
@@ -110,38 +146,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.wrapper {
-  background: transparent;
-}
-.timeline {
-  position: relative;
-  &::after {
-    content: '';
-    position: absolute;
-    top: 64px;
-    left: 40px;
-    height: 100%;
-    width: 2px;
-    background-color: #90a4ae;
-  }
-  &:nth-last-child(1)::after {
-    display: none;
-  }
-  &-title {
-    cursor: pointer;
-    background-color: transparent;
-  }
-  .ctx {
-    &-list {
-      padding-left: 16px;
-      &::before {
-        content: '-';
-        position: absolute;
-        left: 16px;
-      }
-    }
-  }
-}
-</style>
