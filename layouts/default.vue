@@ -19,13 +19,35 @@
       <v-btn icon class="ml-n4 hidden-md-and-up" @click="mDrawer = !mDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
-      <div class="d-flex title font-weight-bold ml-4 mr-16">
-        goder.club
-        <v-icon class="ml-1" size="24" color="indigo">
-          mdi-gamepad-variant
-        </v-icon>
+      <!-- <v-fade-transition leave-absolute>
+        <div
+          v-if="ifCustomTitle"
+          class="d-flex align-center title font-weight-bold ml-4 mr-16"
+        >
+          <v-avatar size="24" class="mr-2">
+            <v-img src="http://pics.goder.club/logo.png" contain></v-img>
+          </v-avatar>
+          {{ customTitle }}
+        </div>
+      </v-fade-transition> -->
+      <div class="d-flex align-center title font-weight-bold ml-4 mr-16">
+        <v-avatar size="24" class="mr-2">
+          <v-img
+            :src="`http://pics.goder.club/logo${
+              !$vuetify.theme.dark ? '' : '-white'
+            }.png`"
+            contain
+          ></v-img>
+        </v-avatar>
+
+        <v-fade-transition hide-on-leave>
+          <div v-if="ifCustomTitle">{{ customTitle }}</div>
+        </v-fade-transition>
+        <div v-if="!ifCustomTitle">goder.club</div>
       </div>
+
       <v-tabs
+        v-if="!ifCustomTitle"
         class="hidden-sm-and-down fill-height"
         color=""
         background-color="transparent"
@@ -43,6 +65,7 @@
           <span class="body-2 font-weight-regular">{{ link.title }}</span>
         </v-tab>
       </v-tabs>
+
       <v-spacer />
       <div class="hidden-sm-and-down">
         <!-- <v-btn icon @click="turnTheme">
@@ -140,9 +163,7 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      theme: (state) => state.theme,
-    }),
+    ...mapState(['theme', 'customTitle', 'ifCustomTitle']),
   },
   mounted() {},
 }

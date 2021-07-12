@@ -1,6 +1,8 @@
 export const state = () => ({
   theme: 'base',
   dark: false,
+  ifCustomTitle: false,
+  customTitle: '',
 })
 
 export const mutations = {
@@ -9,5 +11,12 @@ export const mutations = {
   },
   setTheme(state, { name }) {
     state.theme = name
+  },
+  setCustomTitle(state, { title }) {
+    state.customTitle = title
+    state.ifCustomTitle = true
+  },
+  closeCustomTitle(state) {
+    state.ifCustomTitle = false
   },
 }
