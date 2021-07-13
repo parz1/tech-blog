@@ -71,14 +71,14 @@
       <div class="hidden-sm-and-down">
         <!-- <v-btn icon @click="turnTheme">
             <v-icon>mdi-application</v-icon>
-          </v-btn>
-          <v-btn icon @click="search = !search">
-            <v-icon>mdi-magnify</v-icon>
-          </v-btn>
-          <v-btn style="z-index: 100" icon @click="drawer = !drawer">
+          </v-btn> -->
+        <v-btn icon @click="search = !search">
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+        <!-- <v-btn style="z-index: 100" icon @click="drawer = !drawer">
             <v-icon>mdi-apps</v-icon>
           </v-btn> -->
-        <v-responsive max-width="260">
+        <!-- <v-responsive max-width="260">
           <v-text-field
             append-icon="mdi-magnify"
             dense
@@ -87,7 +87,7 @@
             solo
             clearable
           ></v-text-field>
-        </v-responsive>
+        </v-responsive> -->
       </div>
       <v-btn class="ml-2" icon @click="drawer = !drawer">
         <v-icon>mdi-cog-outline</v-icon>
