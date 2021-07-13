@@ -32,13 +32,13 @@
           </v-sheet>
         </v-col>
         <v-col cols="12" sm="4">
-          <v-card>
+          <!-- <v-card>
             <v-card-text>
               <div v-for="link of article.toc" :key="link.id">
                 <NuxtLink :to="`#${link.id}`">{{ link.text }}</NuxtLink>
               </div>
             </v-card-text>
-          </v-card>
+          </v-card> -->
           <v-card tile>
             <v-card-text>
               <div class="text-center">
@@ -46,7 +46,8 @@
                   <img src="~/assets/imgs/avatar.jpg" alt="avatar" />
                 </v-avatar>
               </div>
-              <div class="text-center">parz1</div>
+              <div class="text-center headline">parz1</div>
+              <div class="text-center body-2">兴趣使然 生活所迫</div>
             </v-card-text>
           </v-card>
         </v-col>

@@ -1,3 +1,16 @@
+v1.06:
+  vername: "N1205 1st EDITION"
+  ver: "1.06"
+  desc: 内容升级
+  ctx:
+    - 丰富了DEMO页内容
+    - 对博客页UI进行了修改
+  tag:
+    - setup
+    - enhancement
+  link:
+  date: "2021-7-12 17:40:00"
+
 v1.05:
   vername: "N1205 1st EDITION"
   ver: "1.05"
@@ -10,7 +23,7 @@ v1.05:
     - setup
     - enhancement
   link:
-  date: "2020-10-01 01:39:00"
+  date: "2021-7-10 01:39:00"
 
 v1.04:
   vername: "N1205 1st EDITION"

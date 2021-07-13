@@ -9,6 +9,9 @@ TypeScript在拥有JavaScript所有特性的基础上，加了一层TypeScript�
 
 首先先从类型系统入手，笼统介绍ts：
 
+
+<!--more-->
+
 ### 类型推断
 
 多数情况下，ts会自动判断类型。

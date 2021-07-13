@@ -6,7 +6,11 @@
           v-model="value"
           active-class="deep-purple--text text--accent-4"
         >
-          <v-list-item v-for="(navi, idx) in naviList" :key="`navi-${idx}`">
+          <v-list-item
+            v-for="(navi, idx) in naviList"
+            :key="`navi-${idx}`"
+            :to="{ path: navi.to }"
+          >
             <v-list-item-title>{{ navi.title }}</v-list-item-title>
           </v-list-item>
         </v-list-item-group>

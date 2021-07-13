@@ -30,20 +30,21 @@
           {{ customTitle }}
         </div>
       </v-fade-transition> -->
-      <div class="d-flex align-center title font-weight-bold ml-4 mr-16">
-        <v-avatar size="24" class="mr-2">
-          <v-img
-            :src="`http://pics.goder.club/logo${
-              !$vuetify.theme.dark ? '' : '-white'
-            }.png`"
-            contain
-          ></v-img>
-        </v-avatar>
-
+      <div class="title font-weight-bold mr-16">
         <v-fade-transition hide-on-leave>
-          <div v-if="ifCustomTitle">{{ customTitle }}</div>
+          <div v-if="ifCustomTitle" class="body-1">{{ customTitle }}</div>
         </v-fade-transition>
-        <div v-if="!ifCustomTitle">goder.club</div>
+        <div v-if="!ifCustomTitle" class="d-flex align-center">
+          <v-avatar size="24" class="mr-1">
+            <v-img
+              :src="`http://pics.goder.club/logo${
+                !$vuetify.theme.dark ? '' : '-white'
+              }.png`"
+              contain
+            ></v-img>
+          </v-avatar>
+          <div>goder.club</div>
+        </div>
       </div>
 
       <v-tabs

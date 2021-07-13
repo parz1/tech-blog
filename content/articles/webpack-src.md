@@ -1,11 +1,12 @@
 ---
 title: 手写webpack源码
 description: 使用babel实现webpack的一部分功能
-cover: http://pics.goder.club/cover/51006223610_bd235c123b_o.jpg
+cover: https://i.loli.net/2021/07/13/ed9ONqmhkyzDbu4.jpg
 ---
 
 webpack.js
 
+<!--more-->
 ```javascript
 const fs = require('fs')
 const path = require('path')
@@ -50,6 +51,7 @@ function getModuleInfo(file) {
 const info = getModuleInfo('./src/index.js')
 console.log(info)
 ```
+
 
 > {
 >   file: './src/index.js',
