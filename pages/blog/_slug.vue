@@ -3,7 +3,13 @@
     <v-container>
       <div>
         <p
-          class="display-1 display-sm-2 font-weight-bold mb-0 mt-8 content-title"
+          class="
+            display-1 display-sm-2
+            font-weight-bold
+            mb-0
+            mt-8
+            content-title
+          "
         >
           {{ article.title }}
         </p>

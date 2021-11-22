@@ -1,7 +1,7 @@
 ---
 title: 手写webpack源码
 description: 使用babel实现webpack的一部分功能
-cover: https://i.loli.net/2021/07/13/ed9ONqmhkyzDbu4.jpg
+# cover: https://i.loli.net/2021/07/13/ed9ONqmhkyzDbu4.jpg
 ---
 
 webpack.js

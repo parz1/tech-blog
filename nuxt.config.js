@@ -116,6 +116,7 @@ export default {
    */
   generate: {},
   build: {
+    transpile: [/vue-agile/, /three/],
     extend(config, { isDev, isClient }) {
       //  ...
       config.module.rules.push({
