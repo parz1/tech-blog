@@ -125,5 +125,6 @@ export default {
         use: 'yaml-loader',
       })
     },
+    babel: { compact: true },
   },
 }
